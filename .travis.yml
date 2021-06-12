@@ -1,0 +1,10 @@
+language: groovy
+jdk:
+- oraclejdk8
+addons:
+before_install:
+- unset GEM_PATH
+before_script:
+- mvn -U clean install
+after_success:
+- mvn clean test jacoco:report coveralls:report

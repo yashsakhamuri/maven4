@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>nz.net.osnz.parent</groupId>
+		<artifactId>groovy-parent</artifactId>
+		<version>3.4</version>
+	</parent>
+
+	<groupId>nz.net.osnz.module</groupId>
+	<artifactId>phonepe</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>bathe-war</packaging>
+
+	<name>phonepe</name>
+	<description>phonepe</description>
+	<url>https://github.com/kdeng/phonepe</url>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>nz.net.osnz.composite</groupId>
+			<artifactId>composite-groovy</artifactId>
+			<version>[3.10,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>nz.net.osnz.lmz</groupId>
+			<artifactId>lmz-runner</artifactId>
+			<version>[1.6,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>nz.net.osnz.composite</groupId>
+			<artifactId>composite-logging</artifactId>
+			<version>[3.4,)</version>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.bluetrainsoftware.maven</groupId>
+				<artifactId>bathe-plugin</artifactId>
+				<version>2.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<jumpClass>nz.ac.auckland.war.WebAppRunner</jumpClass>
+					<booterArguments>-Dlogback.configurationFile=logback.xml
+						-Psrc/main/webapp/META-INF/baseconfig/simple.properties</booterArguments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
